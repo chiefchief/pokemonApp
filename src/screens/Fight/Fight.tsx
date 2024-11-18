@@ -94,7 +94,7 @@ export const Fight: FC = () => {
     dispatch(
       setGameResult({opponentPokemon: opponentPokemon.name, playerPokemon: playerPokemon.name, isPlayerWin: true}),
     );
-  }, []);
+  }, [dispatch, opponentPokemon.name, playerPokemon.name]);
 
   return (
     <>
