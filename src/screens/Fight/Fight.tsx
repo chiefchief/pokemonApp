@@ -1,4 +1,4 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {RouteProp, StaticScreenProps, useNavigation, useRoute} from '@react-navigation/native';
 import React, {FC, useCallback, useRef, useState} from 'react';
 import {Modal, Pressable, StyleSheet, useWindowDimensions, View, Text} from 'react-native';
 import {HPBar} from './HPBar/HPBar';
@@ -20,7 +20,10 @@ import {setGameResult} from '@shared/store/fightResult/fightResult';
 type ParamListBase = {
   Fight: {playerPokemon: PokemonItem; opponentPokemon: PokemonItem};
 };
-export const Fight: FC = () => {
+
+type Props = StaticScreenProps<{playerPokemon: PokemonItem; opponentPokemon: PokemonItem}>;
+
+export const Fight: FC<Props> = () => {
   const {width} = useWindowDimensions();
   const {params} = useRoute<RouteProp<ParamListBase, 'Fight'>>();
   const {playerPokemon, opponentPokemon} = params;

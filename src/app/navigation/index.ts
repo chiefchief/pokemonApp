@@ -1,4 +1,4 @@
-import {createStaticNavigation} from '@react-navigation/native';
+import {createStaticNavigation, StaticParamList} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Fight, Initial} from '@screens';
 import {PokemonItem} from '@shared/api/pokemon/types';
@@ -8,7 +8,7 @@ export type RootParamList = {
   Fight: {playerPokemon: PokemonItem; opponentPokemon: PokemonItem};
 };
 
-const RootStack = createNativeStackNavigator<RootParamList>({
+const RootStack = createNativeStackNavigator({
   screens: {
     Initial: {
       screen: Initial,
@@ -22,5 +22,4 @@ const RootStack = createNativeStackNavigator<RootParamList>({
 
 export const Navigation = createStaticNavigation(RootStack);
 
-// export type RootStackParamList = StaticParamList<typeof RootStack>; // does't help with params
-export type RootStackParamList = RootParamList;
+export type RootStackParamList = StaticParamList<typeof RootStack>;
