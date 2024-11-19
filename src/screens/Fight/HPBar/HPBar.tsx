@@ -10,7 +10,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-const totalHp = 10;
+const totalHp = 100;
 
 const TranslationAmount = 8;
 const timingConfig = {
